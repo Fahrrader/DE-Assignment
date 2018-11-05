@@ -1,3 +1,3 @@
 # DE-Assignment
 
-This program uses Java 9.0 and JavaFX 8.
+This program uses JDK 9.0 and JavaFX 8.
