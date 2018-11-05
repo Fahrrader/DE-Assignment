@@ -1,9 +1,9 @@
 import javafx.geometry.Insets;
-import javafx.scene.Cursor;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 
+/** Class that handles dynamic hints appearing on the plot */
 class ValueNode extends StackPane {
 
     public ValueNode(double xVal, double yVal) {
@@ -23,7 +23,7 @@ class ValueNode extends StackPane {
         });
     }
 
-    private Label createLabel(/*String string, */double xVal, double yVal) {
+    private Label createLabel(double xVal, double yVal) {
         Label label = new Label("x = " + xVal + "\ny = " + yVal);
         label.setOpacity(0.9);
         label.setPadding(new Insets(2));

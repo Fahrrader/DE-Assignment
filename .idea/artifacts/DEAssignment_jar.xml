@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DEAssignment:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/DEAssignment_jar</output-path>
+    <root id="archive" name="DE-Assignment.jar">
+      <element id="module-output" name="DE-Assignment" />
+    </root>
+  </artifact>
+</component>

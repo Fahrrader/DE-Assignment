@@ -11,6 +11,7 @@ public class Main extends Application {
 
     private static Controller controller;
 
+    // opening window, setting up GUI
     @Override
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("graphics.fxml"));
@@ -23,14 +24,9 @@ public class Main extends Application {
         controller.anchor.setPrefWidth(windowWidth);
         controller.anchor.setPrefHeight(windowHeight);
         window.show();
-        // todo chart: sizing, multiple plots, when hovering, show what values plot has (unnecessary)
-        // todo make an element to print error
-        // todo build every graph when button is pressed, or at least don't forget and show later
     }
 
     public static void main(String[] args) {
         launch(args);
     }
-
-    //public static void display
 }

@@ -1,3 +1,4 @@
+/** Class that handles numeric solution table creation */
 public class NumericTable {
     private double x;
     private double euler;

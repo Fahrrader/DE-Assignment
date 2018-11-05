@@ -6,7 +6,6 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -14,13 +13,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
 
+/** The class in charge of graphics and user interface */
 public class Controller {
     // binding elements of this .java file to ones of .fxml
     @FXML public AnchorPane anchor;
@@ -62,7 +61,7 @@ public class Controller {
         chart.getData().add(plots[0]);
     }
 
-    // force the field to be numeric only
+    // force the text field to accept numbers only
     private void forceNumberic(TextField tf) {
         tf.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -75,6 +74,7 @@ public class Controller {
         });
     }
 
+    // set some highlight to currently displayed plot's method
     private void styleSelectedMethod() {
         methodButtons.getChildren().get(selectedMethodNum + 1).setStyle(
                 "-fx-font-weight: bold;" +
@@ -82,19 +82,20 @@ public class Controller {
         );
     }
 
+    // function that executes when user clicks on a method button
     @FXML public void selectMethod(Event e) {
         if (methodButtons.getChildren().indexOf(e.getSource()) - 1 == selectedMethodNum) {
             e.consume();
-            return;
+            return; // if the same method
         }
         methodButtons.getChildren().get(selectedMethodNum + 1).setStyle("");
         chart.getData().remove(plots[selectedMethodNum]);
         selectedMethodNum = methodButtons.getChildren().indexOf(e.getSource()) - 1;
         styleSelectedMethod();
-        System.out.println(selectedMethodNum);
         chart.getData().add(plots[selectedMethodNum]);
     }
 
+    // occurs when button "build plots" is pressed
     @FXML public void buildPlots() {
         for (int i = 0; i < plots.length; i++)
             plots[i].getData().clear();
@@ -110,7 +111,7 @@ public class Controller {
                 n = Double.parseDouble(this.N.getText());
 
         XYChart.Data<Number, Number> data;
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 4; i++) { // run first through main methods
             ArrayList<Pair<Double, Double>> results = Calculator.computeByMethod(x0, y0, b, n, i);
             coordinates[i] = results;
             for (Pair<Double, Double> p : results) {
@@ -120,7 +121,7 @@ public class Controller {
             }
         }
 
-        for (int i = 1; i < 4; i++) {
+        for (int i = 1; i < 4; i++) { // then through their errors.
             ArrayList<Pair<Double, Double>> results = Calculator.computeError(x0, y0, b, n, coordinates[i]);
             coordinates[i + 3] = results;
             for (Pair<Double, Double> p : results) {
@@ -131,6 +132,7 @@ public class Controller {
         }
     }
 
+    // function that displays numeric solution table for all methods
     @FXML public void openTable() {
         Stage window = new Stage();
         window.setTitle("Numerical Solution Table");
