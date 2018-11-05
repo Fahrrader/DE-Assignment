@@ -1,7 +1,7 @@
 # DE-Assignment
 
 This program uses JDK 9.0 and JavaFX 8.
-To install:
+To launch:
 1. Make sure you have JDK installed.
 2. Open DEAssignment.jar file.
 
