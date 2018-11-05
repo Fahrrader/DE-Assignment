@@ -9,11 +9,11 @@ public class Main extends Application {
     public static final int windowWidth = 800;
     public static final int windowHeight = 400;
 
-    private static graphics.Controller controller;
+    private static Controller controller;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("graphics/graphics.fxml"));
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("graphics.fxml"));
         window = primaryStage;
         window.setTitle("Plot Builder");
         window.setMinWidth(700);

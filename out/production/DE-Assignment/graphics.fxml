@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.Controller">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -32,12 +32,12 @@
                      <Button fx:id="eulerButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#selectMethod" text="Euler Method" GridPane.rowIndex="2" />
                      <Button fx:id="improvEulerButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#selectMethod" text="Improved E. Method" GridPane.rowIndex="3" />
                      <Button fx:id="rungeKuttaButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#selectMethod" text="Runge-Kutta Method" GridPane.rowIndex="4" />
-                      <Button fx:id="eulerErrorButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#selectMethod" text="e" GridPane.rowIndex="2" GridPane.columnIndex="1" />
-                      <Button fx:id="improvErrorButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#selectMethod" text="e" GridPane.rowIndex="3" GridPane.columnIndex="1" />
-                      <Button fx:id="rungeErrorButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#selectMethod" text="e" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+                      <Button fx:id="eulerErrorButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#selectMethod" text="e" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                      <Button fx:id="improvErrorButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#selectMethod" text="e" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                      <Button fx:id="rungeErrorButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#selectMethod" text="e" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   </children>
                      <columnConstraints>
-                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="180.0" />
+                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="190.0" />
                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
                      </columnConstraints>
                      <rowConstraints>
@@ -63,17 +63,18 @@
                         <Label minWidth="15" text="X:" />
                         <TextField fx:id="X" promptText="X" text="10.2" />
                         <Label minWidth="15" text="N:" />
-                        <TextField fx:id="N" promptText="N" text="40" />
+                        <TextField fx:id="N" promptText="N" text="10" />
                      </children>
                   </HBox>
                  </children>
                </VBox>
+                  <Button fx:id="tableButton" onAction="#openTable" text="Numerical Solution Table"/>
               </children>
             </VBox>
-            <Button fx:id="buildButton" defaultButton="true" layoutX="14.0" layoutY="221.0" mnemonicParsing="false" onAction="#buildGraph" text="Build Plots" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
+            <Button fx:id="buildButton" defaultButton="true" layoutX="14.0" layoutY="221.0" mnemonicParsing="false" onAction="#buildPlots" text="Build Plots" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
              <Pane AnchorPane.rightAnchor="0">
                 <children>
-                <LineChart fx:id="chart" alternativeColumnFillVisible="true" centerShape="false" createSymbols="true" legendSide="TOP" legendVisible="false">
+                <LineChart fx:id="chart" alternativeColumnFillVisible="true" animated="false" centerShape="false" createSymbols="true" legendSide="TOP" legendVisible="false">
                   <xAxis>
                     <NumberAxis autoRanging="true" label="x" side="BOTTOM" />
                   </xAxis>
